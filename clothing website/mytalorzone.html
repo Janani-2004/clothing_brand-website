@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mytalorzone by Sahiba</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #b98e2af0;
+            color: #fff;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header nav a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #fff;
+        }
+
+        header nav a:hover {
+            color: #746a1ff0;
+        }
+
+        header .search-bar {
+            margin-right: 20px;
+        }
+
+        header .search-bar input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .hero {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 20px;
+            background-color: #b98e2af0;
+            color: #fff;
+        }
+
+        .intro p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product button {
+            background-color: #b98e2af0;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .product button:hover {
+            background-color: #b98e2af0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #b98e2af0;
+            color: #fff;
+            border-top: 1px solid #b98e2af0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .filter-bar {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .filter-bar select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .collection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .collection-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .collection-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .collection-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .collection-item h4 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .collection-item button {
+            background-color: #b98e2af0;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .collection-item button:hover {
+            background-color: #b98e2af0;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Mytalorzone</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#cart" onclick="showCart()">Cart <span id="cartCount">0</span></a>
+        <a href="login.html">Login</a>
+    </nav>
+    <div class="search-bar">
+        <input type="text" id="searchBar" placeholder="Search..." oninput="dynamicSearch()">
+    </div>
+</header>
+
+<div class="hero">
+    <h1>Welcome to Mytalorzone by Sahiba</h1>
+</div>
+
+<div class="intro">
+    <div class="offer">50% Off on All Traditional Wear!</div>
+    <div class="offer">Buy 1 Get 1 Free on Western Wear!</div>
+    <div class="offer">Flat 30% Off on Trendy Tops!</div>
+</div>
+
+<div class="filter-bar">
+    <label for="category">Filter by category: </label>
+    <select id="category" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="kurta_sets">Kurtas</option>
+        <option value="western">Western</option>
+        <option value="trendy">Trendy</option>
+        <option value="traditional">Saree</option>
+    </select>
+
+    <label for="sort">Sort by: </label>
+    <select id="sort" onchange="sortProducts()">
+        <option value="default">Default</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A to Z</option>
+        <option value="name-desc">Name: Z to A</option>
+    </select>
+
+</div>
+
+<section id="products" class="products">
+    <div class="product" data-category="kurta_sets">
+        <img src="images/kurtas.webp" alt="Kurta sets">
+        <h3>Kurta sets</h3>
+        <button onclick="showCollection('Kurta sets')">View Collection</button>
+    </div>
+    <div class="product" data-category="western">
+        <img src="images/Denim western wear.webp" alt="Western Outfit">
+        <h3>Western Outfit</h3>
+        <button onclick="showCollection('Western Outfit')">View Collection</button>
+    </div>
+    <div class="product" data-category="trendy">
+        <img src="images/trendy.webp" alt="Trendy Top">
+        <h3>Trendy Top</h3>
+        <button onclick="showCollection('Trendy Top')">View Collection</button>
+    </div>
+    <div class="product" data-category="traditional">
+        <img src="images/saree.webp" alt="Saree">
+        <h3>Saree</h3>
+        <button onclick="showCollection('Saree')">View Collection</button>
+    </div>
+</section>
+
+<section id="collection" style="display: none;">
+    <button onclick="showMainProducts()" style="margin: 20px;">Back to Products</button>
+
+    <h2 style="text-align: center;">Collection</h2>
+    <div class="collection" id="collectionContainer"></div>
+</section>
+
+<section id="about" class="about">
+    <div class="intro">
+        <h2>About Us</h2>
+        <p>Mytalorzone by Sahiba was founded with the vision of providing unique and trendy clothing for girls. Our brand is dedicated to creating styles that blend tradition with modernity, offering a diverse range of options for every occasion.</p>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="intro">
+        <h2>Contact Us</h2>
+        <p>Email: support@mytalorzone.com</p>
+        <p>Phone: +91 7834502183</p>
+    </div>
+</section>
+
+<section id="cart" style="display: none;">
+    <h2 style="text-align: center;">Your Cart</h2>
+    <div id="cartContainer" style="text-align: center;"></div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Mytalorzone by Sahiba. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+const collections = {
+        'Kurta sets': {
+            items: [
+                { name: 'Onion Pink Thread Work Viscose Kurta', image: 'images/onion pink thread work viscose kurta.avif', price: '₹ 9,999' },
+                { name: 'Floral Pink Anarkali Set', image: 'images/floral print anarkali set.avif', price: '₹1,111' },
+                { name: 'Beads Butti Embroidered Anarkali with Dupatta', image: 'images/beads butti embroidered anarkali with dupatta.avif', price: '₹ 2,999' },
+                { name: 'Peplum Kurta Sharana set', image: 'images/Peplum kurta sharana set.avif', price: '₹ 5,599' },
+                { name: 'Embroided Kurta with Dhoti Pant', image: 'images/embroidered kurta with dhoti pant.avif', price: '₹ 12,000' },
+                { name: 'Anam Mukaish Embellished Anarkali Set', image: 'images/anam mukaish embellished anarkali set.avif', price: '₹ 8,999' },
+                { name: 'Glam Red Cotton Kurta', image: 'images/glam red cotton kurta.jpg', price: '₹ 4,500' },
+                { name: 'Cream Silk Kurta Set', image: 'images/cream silk kurta set.avif', price: '₹ 10,000' },
+                { name: 'Long Kurta SKirts', image: 'images/long kurta skirt.jpg', price: '₹ 5,999' },
+                { name: 'Black kurta set with dupatta', image: 'images/Black kurta set with dupatta.webp', price: '₹ 8,999' },
+                { name: 'Interwined Floral Kurta with Tulip Pant', image: 'images/interwined floral kurta with tulip pant.avif', price: '₹ 3,999' },
+                { name: 'Red abstract Print Kurta set', image: 'images/Red abstract print cotton kurta set.avif', price: '₹ 2,999' },
+                { name: 'Mustard Green Silk Plain Kurta set', image: 'images/Mustard green silk plain kurta set.webp', price: '15,999' },
+                { name: 'Royal Blue Velvet Kurta', image: 'images/Royal blue velvet kurta.jpg', price: '₹ 3,999' },
+                { name: 'Floral Block Print Kurta set', image: 'images/floral block print kurta set.avif', price: '₹ 13,000' },
+                { name: 'Pink Sequin Embroidered Georgette Kurta set', image: 'images/Pink sequin embroidered georgette kurta.avif', price: '₹ 27,000' },
+                { name: 'Ophelia Ombre Kurta with Pant', image: 'images/ophelia ombre kurta with pant.avif', price: '₹ 22,999' },
+                { name: 'Floral Banarasi Pattern Kurta pant set', image: 'images/flower banarasi pattern kurta pant set.avif', price: '₹ 29,000' },
+                { name: 'Maroon kurti with pant and dupatta', image: 'images/maroon kurti with pant and duppatta.webp', price: '₹ 5,999' },
+                { name: 'Fog Beige and Golden Woven Tissue Festive Kurta set', image: 'images/Fog Beige and golden woven Tissue Festive kurta set.webp', price: '₹ 19,999' }
+            ]
+        },
+        'Western Outfit': {
+            items: [
+                { name: 'African Print Peplum Top', image: 'images/african print peplum top.jpg', price: '₹ 799' },
+                { name: 'Classy and Elegant Combo', image: 'images/Classy and Elegant combo.jpg', price: '₹ 2,999' },
+                { name: 'Miss Chase Printed Basic Jumpsuit', image: 'images/Miss chase printed basic jumpsuit.webp', price: '₹ 1,999' },
+                { name: 'Satin Lace Square Neck Dress', image: 'images/Satin lace square neck dress.jpg', price: '₹ 9,999' },
+                { name: 'Trendy jean', image: 'images/western.webp', price: '₹ 899' },
+                { name: 'Chocolate Brown Oversized Tee', image: 'images/chocolate brown oversized tee.jpg', price: '₹ 999' },
+                { name: 'Wine A-Line Mini Dress', image: 'images/Wine A-line mini dress.webp', price: '₹ 2,999' },
+                { name: 'Mauve Satin Collar Top', image: 'images/Mauve satin collar top.webp', price: '₹ 1,500' },
+                { name: 'Floral Woven Pattern Mini Dress', image: 'images/Floral woven pattern mini dress.webp', price: '₹ 1,299' },
+                { name: 'White Tank Top', image: 'images/White tank top.jpg', price: '₹ 499' }
+            ]
+        },
+        'Trendy Top': {
+            items: [
+                { name: 'Dreamy Backless dress', image: 'images/Dreamy backless dress.webp', price: '₹ 1,890' },
+                { name: 'Walnut One-Shoulder dress', image: 'images/walnut one-shoulder dress.webp', price: '₹ 3,499' },
+                { name: 'Vibrant Hues Short dress', image: 'images/vibrant hues short dress.webp', price: '₹ 999' },
+                { name: 'Mexican Flame Bodycon dress', image: 'images/Mexican flame bodycon dress.webp', price: '₹ 2,999' },
+                { name: 'Queen lush long dress', image: 'images/Queen lush long dress.webp', price: '₹ 2,499' },
+                { name: 'Lawn green Midi dress', image: 'images/Lawn green midi dress.webp', price: '₹ 1,999' },
+                { name: 'Triple Temptation long dress', image: 'images/Triple temptation long dress.webp', price: '₹ 795' },
+                { name: 'Little Black stunner Short dress', image: 'images/little black stunner short dress.webp', price: '₹ 4,999' },
+                { name: 'Loveseer Long dress', image: 'images/Loveseer long dress.webp', price:'₹ 2,500' },
+                { name: 'Leafy Cascade Long dress', image: 'images/Leafy cascade long dress.webp', price:'₹ 1,500' }
+                
+            ]
+        },
+        'Saree': {
+            items: [
+                { name: 'Black Printed Georgette saree', image: 'images/black printed georgette saree.webp', price: '₹ 2,222' },
+                { name: 'Multicolour Printed Sequin Embellished Organza Saree', image: 'images/Multicolour printed sequin embellished organza saree.avif', price: '₹ 1,999' },
+                { name: 'Quixotic wine digital printed chiffon saree', image: 'images/Quixotic wine digital printed chiffon saree.webp', price: '₹ 2,795' },
+                { name: 'Glam Red Soft Silk Saree', image: 'images/Glam red soft silk saree.webp', price: '₹ 2,999' },
+                { name: 'Trendy Lavender Kanjivaram Silk Saree', image: 'images/Trendy lavender kanjivaram silk saree.webp', price: '₹ 3,895' },
+                { name: 'Green Embroided Chinon Pre-draped Saree', image: 'images/green embroided chinon pre-dreaped saree set.avif', price: '₹ 3,999' },
+                { name: 'Vibhava Tissue Silk Saree', image: 'images/Vibhava tissue silk saree.webp', price: '₹ 3,500' },
+                { name: 'Golden embellished soft net saree', image: 'images/golden embellished soft net saree.avif', price: '₹ 2,999' },
+                { name: 'Rouge Maroon colour Saree', image: 'images/Rouge maroon colour saree.webp', price: '₹ 1,985' },
+                { name: 'Oishi Cotton Saree', image: 'images/Oishi cotton saree.webp', price: '₹ 1,999' }
+            ]
+        }
+    };
+    
+
+    let cart = [];
+
+    function dynamicSearch() {
+        const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+        const products = document.querySelectorAll('.product');
+
+        products.forEach(product => {
+            const name = product.querySelector('h3').textContent.toLowerCase();
+            product.style.display = name.includes(searchTerm) ? 'block' : 'none';
+        });
+    }
+
+
+    function showCollection(category) {
+        const collectionContainer = document.getElementById('collectionContainer');
+        const selectedCollection = collections[category];
+
+        collectionContainer.innerHTML = ''; // Clear previous items
+        selectedCollection.items.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'collection-item';
+            itemDiv.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <h4>${item.name}</h4>
+                <p>Price: ${item.price}</p>
+                <button onclick="addToCart('${item.name}', '${item.image}')">Add to Cart</button>
+            `;
+            collectionContainer.appendChild(itemDiv);
+        });
+
+        document.getElementById('products').style.display = 'none';
+        document.getElementById('collection').style.display = 'block';
+    }
+
+    function sortProducts() {
+        const selectedSort = document.getElementById('sort').value;
+        const productsContainer = document.getElementById('products');
+        const products = Array.from(document.querySelectorAll('.product'));
+
+        products.sort((a, b) => {
+            const nameA = a.querySelector('h3').textContent.toLowerCase();
+            const nameB = b.querySelector('h3').textContent.toLowerCase();
+            const priceA = parseFloat(a.dataset.price) || 0;
+            const priceB = parseFloat(b.dataset.price) || 0;
+
+            switch (selectedSort) {
+                case 'price-asc':
+                    return priceA - priceB;
+                case 'price-desc':
+                    return priceB - priceA;
+                case 'name-asc':
+                    return nameA.localeCompare(nameB);
+                case 'name-desc':
+                    return nameB.localeCompare(nameA);
+                default:
+                    return 0;
+            }
+            
+        });
+
+        // Clear container and append sorted products
+        productsContainer.innerHTML = '';
+        products.forEach(product => productsContainer.appendChild(product));
+    }
+
+    function filterProducts() {
+        const selectedCategory = document.getElementById('category').value;
+        const products = document.querySelectorAll('.product');
+
+        products.forEach(product => {
+            if (selectedCategory === 'all' || product.dataset.category === selectedCategory) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+
+    function showProducts() {
+        document.getElementById('collection').style.display = 'none';
+        document.getElementById('products').style.display = 'block';
+    }
+
+    document.querySelector('a[href="#products"]').addEventListener('click', function (event) {
+        event.preventDefault();
+        showProducts();
+    });
+
+    function addToCart(name, image) {
+        cart.push({ name, image });
+        alert(`${name} has been added to your cart!`);
+        updateCartDisplay();
+    }
+
+    function showMainProducts() {
+        document.getElementById('collection').style.display = 'none';
+        document.getElementById('products').style.display = 'grid';
+    }
+
+
+    function updateCartDisplay() {
+        const cartCount = document.getElementById('cartCount');
+        cartCount.textContent = cart.length;
+
+        const cartContainer = document.getElementById('cartContainer');
+        cartContainer.innerHTML = '';
+
+        if (cart.length === 0) {
+            cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+        } else {
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" width="50">
+                    <h4>${item.name}</h4>
+                `;
+                cartContainer.appendChild(itemDiv);
+            });
+
+            const checkoutButton = document.createElement('button');
+            checkoutButton.textContent = 'Proceed to Checkout';
+            checkoutButton.onclick = proceedToCheckout;
+            cartContainer.appendChild(checkoutButton);
+        }
+    }
+
+    function showCart() {
+        document.getElementById('cart').style.display = 'block';
+        document.getElementById('products').style.display = 'none';
+        document.getElementById('collection').style.display = 'none';
+    }
+
+    function proceedToCheckout() {
+        if (cart.length === 0) {
+            alert('Your cart is empty. Please add some items to proceed.');
+        } else {
+            alert('Proceeding to checkout...');
+        }
+    }
+</script>
+
+</body>
+
+</html>
